@@ -40,7 +40,7 @@ pipeline {
                 bat '''
                     docker stop realtime-chat-container || exit 0
                     docker rm realtime-chat-container || exit 0
-                    docker run -d --name realtime-chat-container -p 8080:8080 %DOCKER_IMAGE%
+                    docker run -d --name realtime-chat-container -p 8081:8080 %DOCKER_IMAGE%
                 '''
             }
         }
