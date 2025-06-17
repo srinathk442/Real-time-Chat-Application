@@ -19,27 +19,27 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'wsl mvn clean install'
+                bat 'wsl mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'wsl mvn test'
+                bat 'wsl mvn test'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh "wsl docker build -t ${DOCKER_IMAGE} ."
+                bat "wsl docker build -t %DOCKER_IMAGE% ."
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh '''
-                    wsl docker ps -q --filter "name=realtime-chat-container" | grep -q . && wsl docker stop realtime-chat-container && wsl docker rm realtime-chat-container || true
-                    wsl docker run -d --name realtime-chat-container -p 8080:8080 ${DOCKER_IMAGE}
+                bat '''
+                    wsl docker ps -q --filter "name=realtime-chat-container" | grep -q . && wsl docker stop realtime-chat-container && wsl docker rm realtime-chat-container || exit 0
+                    wsl docker run -d --name realtime-chat-container -p 8080:8080 %DOCKER_IMAGE%
                 '''
             }
         }
