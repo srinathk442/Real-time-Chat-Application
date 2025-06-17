@@ -20,27 +20,27 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn clean install -DskipTests'
-
             }
         }
 
         stage('Test') {
             steps {
-                bat 'wsl mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t realtime-chat-app .'
+                bat "docker build -t %DOCKER_IMAGE% ."
             }
         }
 
         stage('Docker Run') {
             steps {
                 bat '''
-                    wsl docker rm -f realtime-chat-container || exit 0
-                    wsl docker run -d --name realtime-chat-container -p 8080:8080 realtime-chat-app
+                    docker stop realtime-chat-container || exit 0
+                    docker rm realtime-chat-container || exit 0
+                    docker run -d --name realtime-chat-container -p 8080:8080 %DOCKER_IMAGE%
                 '''
             }
         }
