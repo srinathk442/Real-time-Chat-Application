@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/srinathk442/Real-time-Chat-Application.git'
+                git branch: 'main', url: 'https://github.com/srinathk442/Real-time-Chat-Application.git'
             }
         }
 
