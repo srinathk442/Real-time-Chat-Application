@@ -27,6 +27,11 @@ pipeline {
             steps {
                 bat 'mvn test'
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
 
         stage('Docker Build') {
@@ -38,10 +43,16 @@ pipeline {
         stage('Docker Run') {
             steps {
                 bat '''
-                    docker stop realtime-chat-container || exit 0
-                    docker rm realtime-chat-container || exit 0
-                    docker run -d --name realtime-chat-container -p 8081:8080 %DOCKER_IMAGE%
+                    docker stop realtime-chat-app || exit /b 0
+                    docker rm realtime-chat-app || exit /b 0
+                    docker run -d --name realtime-chat-app -p 8081:8080 %DOCKER_IMAGE%
                 '''
+            }
+        }
+
+        stage('Ansible Deploy') {
+            steps {
+                bat 'wsl ansible-playbook -i ansible/inventory.ini ansible/deploy.yml'
             }
         }
     }
