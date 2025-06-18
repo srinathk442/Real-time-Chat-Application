@@ -1,0 +1,56 @@
+---
+- name: Deploy Spring Boot Realtime Chat App
+  hosts: chatapp
+  connection: local
+  become: true
+  gather_facts: yes
+
+  tasks:
+    - name: Install Java
+      apt:
+        name: openjdk-17-jdk
+        state: present
+        update_cache: yes
+
+    - name: Install Maven
+      apt:
+        name: maven
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Enable and start Docker
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Clone Git repo
+      git:
+        repo: https://github.com/srinathk442/Real-time-Chat-Application.git
+        dest: /opt/realtime-chat
+        force: yes
+
+    - name: Build with Maven
+      shell: mvn clean install
+      args:
+        chdir: /opt/realtime-chat
+
+    - name: Build Docker image
+      shell: docker build -t realtime-chat-app .
+      args:
+        chdir: /opt/realtime-chat
+
+    - name: Stop existing container (if running)
+      shell: docker stop chat-app || true
+      ignore_errors: true
+
+    - name: Remove existing container (if exists)
+      shell: docker rm chat-app || true
+      ignore_errors: true
+
+    - name: Run Docker container
+      shell: docker run -d -p 8082:8080 --name chat-app realtime-chat-app
