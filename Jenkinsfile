@@ -55,5 +55,18 @@ pipeline {
                 bat 'wsl ansible-playbook -i ansible/inventory.ini ansible/deploy.yml'
             }
         }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('MySonar') { // Replace 'MySonar' with your configured SonarQube name
+                    bat '''
+                        mvn sonar:sonar ^
+                        -Dsonar.projectKey=realtime-chat ^
+                        -Dsonar.host.url=http://localhost:9000 ^
+                        -Dsonar.login="Enter login key"
+                    '''
+                }
+            }
+        }
     }
 }
