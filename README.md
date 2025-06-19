@@ -1,4 +1,4 @@
-# 💬 Real-Time Chat Application (Spring Boot + WebSocket)
+#  Real-Time Chat Application (Spring Boot + WebSocket)
 
 This is a real-time chat application built with **Spring Boot**, **WebSocket**, and a complete **DevOps CI/CD pipeline** using tools like Jenkins, Docker, Ansible, SonarQube, Graphite, and Grafana.
 
