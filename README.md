@@ -84,4 +84,4 @@ The Jenkins pipeline includes:
 
 ## 📝 License
 
-Licensed under the [MIT License]([https://opensource.org/licenses/MIT](https://choosealicense.com/licenses/mit/)).
+Licensed under [MIT](https://opensource.org/licenses/MIT).
