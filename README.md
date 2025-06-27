@@ -78,3 +78,10 @@ The Jenkins pipeline includes:
 - **Graphite**: Exposed metrics
 - **Grafana**: Accessible at [http://localhost:3000](http://localhost:3000) with pre-configured dashboard panels
 
+## 👤 Author
+
+**Srinath Kamalakumar**
+
+## 📝 License
+
+Licensed under the [MIT License](https://opensource.org/licenses/MIT).
