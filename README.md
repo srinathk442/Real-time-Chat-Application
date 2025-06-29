@@ -78,6 +78,25 @@ The Jenkins pipeline includes:
 - **Graphite**: Exposed metrics
 - **Grafana**: Accessible at [http://localhost:3000](http://localhost:3000) with pre-configured dashboard panels
 
+## 📸 Screenshots
+
+### 🧑‍💻 1. Login & Registration UI
+<img src="screenshots/login.png" width="600"/>
+
+### 💬 2. Real-Time Chat Interface
+<img src="screenshots/chat.png" width="600"/>
+
+### 🧪 3. Jenkins CI/CD Pipeline in Action
+<img src="screenshots/jenkins.png" width="600"/>
+
+### 📊 4. SonarQube Code Quality Report
+<img src="screenshots/sonarqube.png" width="600"/>
+
+### 📈 5. Grafana Monitoring Dashboard
+<img src="screenshots/grafana.png" width="600"/>
+
+
+
 ## 👤 Author
 
 **Srinath Kamalakumar**
