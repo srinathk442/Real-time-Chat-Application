@@ -80,20 +80,24 @@ The Jenkins pipeline includes:
 
 ## 📸 Screenshots
 
-### 🧑‍💻 1. Login & Registration UI
-<img src="screenshots/login.png" width="600"/>
+### 1. Project Flow
 
-### 💬 2. Real-Time Chat Interface
-<img src="screenshots/chat.png" width="600"/>
+<img src="screenshots/project (1).png" width="200"/>
 
-### 🧪 3. Jenkins CI/CD Pipeline in Action
-<img src="screenshots/jenkins.png" width="600"/>
+###  2. Login UI
+<img src="screenshots/project (2).png" width="600"/>
 
-### 📊 4. SonarQube Code Quality Report
-<img src="screenshots/sonarqube.png" width="600"/>
+###  3. Real-Time Chat Interface
+<img src="screenshots/project (3).png" width="600"/>
 
-### 📈 5. Grafana Monitoring Dashboard
-<img src="screenshots/grafana.png" width="600"/>
+###  4. Jenkins CI/CD Pipeline in Action
+<img src="screenshots/project (4).png" width="600"/>
+
+###  5. SonarQube Code Quality Report
+<img src="screenshots/project (5).png" width="600"/>
+
+### 6. Grafana Monitoring Dashboard
+<img src="screenshots/project (6).png" width="600"/>
 
 
 
